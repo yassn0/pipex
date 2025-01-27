@@ -63,7 +63,7 @@ make bonus
 
 
 
-To recompile the project and the test executable, run:
+To recompile the project and the executable, run:
 
 make re
 ```
