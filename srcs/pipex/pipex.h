@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yfradj <yfradj@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 08:47:55 by yfradj            #+#    #+#             */
-/*   Updated: 2025/01/17 12:05:33 by yfradj           ###   ########.fr       */
+/*   Created: 2025/01/13 12:32:19 by yfradj            #+#    #+#             */
+/*   Updated: 2025/01/16 17:15:57 by yfradj           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef PIPEX_H
+# define PIPEX_H
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
-{
-	size_t	i;
+# include "../../libft/libft.h"
+# include <fcntl.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <sys/wait.h>
+# include <unistd.h>
 
-	i = 0;
-	while (((s1[i] || s2[i]) != '\0') && i < n)
-	{
-		if (s1[i] != s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
-	}
-	return (0);
-}
+char	*ft_strdup_path(char *src);
+void	free_tab(char **tab);
+char	*path_cmd(char *command, char **envp, char **cmd_flags);
+char	*get_path(char **cmd_flags, char *var_path);
+void	close_exit(char **cmd_flags, int *fd_link);
+
+#endif

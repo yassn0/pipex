@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yfradj <yfradj@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 08:47:55 by yfradj            #+#    #+#             */
-/*   Updated: 2025/01/17 12:05:33 by yfradj           ###   ########.fr       */
+/*   Created: 2025/01/20 12:18:54 by yfradj            #+#    #+#             */
+/*   Updated: 2025/01/23 13:34:19 by yfradj           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "pipex_bonus.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	close_exit(char **cmd_flags, int *fd_link)
 {
-	size_t	i;
+	close(fd_link[0]);
+	close(fd_link[1]);
+	free_tab(cmd_flags);
+	exit(1);
+}
+
+void	free_tab(char **tab)
+{
+	int	i;
 
 	i = 0;
-	while (((s1[i] || s2[i]) != '\0') && i < n)
+	if (!tab)
+		return ;
+	while (tab[i])
 	{
-		if (s1[i] != s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		if (tab[i])
+			free(tab[i]);
 		i++;
 	}
-	return (0);
+	free(tab);
 }

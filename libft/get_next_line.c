@@ -6,7 +6,7 @@
 /*   By: yfradj <yfradj@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 14:19:16 by yfradj            #+#    #+#             */
-/*   Updated: 2024/12/14 16:43:17 by yfradj           ###   ########.fr       */
+/*   Updated: 2025/01/22 13:54:26 by yfradj           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ char	*get_next_line2(char **stock, char **tmp)
 	*stock = ft_keep_after(*tmp);
 	free(*tmp);
 	tmp = NULL;
+	if (!line)
+		clean_stock(stock);
 	return (line);
 }
 

@@ -6,7 +6,7 @@
 /*   By: yfradj <yfradj@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 16:08:06 by yfradj            #+#    #+#             */
-/*   Updated: 2024/12/14 16:55:46 by yfradj           ###   ########.fr       */
+/*   Updated: 2025/01/22 13:57:46 by yfradj           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ char	*ft_keep_after(char *stock)
 	j = 0;
 	while (stock[i] && stock[i] != '\n')
 		i++;
-	if (stock[i] == '\0')
+	if (stock[i] == '\0' || !stock[i + 1])
 		return (NULL);
 	i++;
 	dst = malloc(ft_strlen(stock) - i + 1);
